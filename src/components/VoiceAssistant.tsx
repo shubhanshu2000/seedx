@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useState, useEffect } from "react";
 
 declare global {
@@ -31,7 +32,7 @@ const VoiceAssistant: React.FC = () => {
       setIsListening(true);
     };
 
-    recognition.onresult = (event) => {
+    recognition.onresult = (event: any) => {
       const speechResult = event.results[0][0].transcript;
       setTranscript(speechResult);
       handleVoiceCommand(speechResult);
@@ -41,7 +42,7 @@ const VoiceAssistant: React.FC = () => {
       setIsListening(false);
     };
 
-    recognition.onerror = (event) => {
+    recognition.onerror = (event: any) => {
       console.error("Speech recognition error:", event.error);
       setIsListening(false);
     };
